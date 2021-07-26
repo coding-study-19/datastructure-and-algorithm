@@ -2,10 +2,7 @@
 
 ## ✏️**규칙**
 * `📂문제 목록`의 2-3문제씩 꾸준히 풀어 해당 폴더에 업로드 해주세요.
-   * 문제의 `알고리즘 분류`를 기준으로 폴더를 정합니다.
-
-    <div align="center">![image](https://user-images.githubusercontent.com/54973036/126939858-ea0026e2-97bc-4dd6-a85e-b4bf4ff1a50e.png)</div>
-
+   * 문제의 `[알고리즘 분류](![image](https://user-images.githubusercontent.com/54973036/126940021-67ca7213-5765-4a47-bfa1-963bff4fa585.png))`를 기준으로 폴더를 정합니다.
 * 전체적인 틀 안에서 개인의 진도에 맞춰 공부를 진행하면 됩니다.
 ---- 
 ## 🎯**목표**
