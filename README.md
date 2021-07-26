@@ -6,7 +6,7 @@
 * 전체적인 틀 안에서 개인의 진도에 맞춰 공부를 진행하면 됩니다.
 <details markdown="1">
 <summary>알고리즘 분류 예시</summary>
-![image](https://user-images.githubusercontent.com/54973036/126941181-53256043-7225-4289-b98b-51064ff50113.png) 
+<img src="https://user-images.githubusercontent.com/54973036/126941181-53256043-7225-4289-b98b-51064ff50113.png">
 </details>
 
 ---- 
