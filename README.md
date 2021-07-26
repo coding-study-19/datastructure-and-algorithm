@@ -3,6 +3,7 @@
 ## ✏️**규칙**
 * `📂문제 목록`의 2-3문제씩 꾸준히 풀어 해당 폴더에 업로드 해주세요.
    * 문제 페이지의 `알고리즘 분류`를 기준으로 폴더를 정합니다.
+   * 
    * <details markdown="1">
     <summary>알고리즘 분류 예시</summary>
     <img src="https://user-images.githubusercontent.com/54973036/126941181-53256043-7225-4289-b98b-51064ff50113.png">
