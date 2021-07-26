@@ -14,6 +14,7 @@
 |   12100   |   2048(Easy)    | https://www.acmicpc.net/problem/12100 |  
 |   3190    |       뱀        | https://www.acmicpc.net/problem/3190  |   
 </details>
+
 ---- 
 ## 🎯**목표**
 * `알고리즘 기초` 마무리
