@@ -4,15 +4,9 @@
 * `📂문제 목록`의 2-3문제씩 꾸준히 풀어 해당 폴더에 업로드 해주세요.
    * 문제 페이지의 `알고리즘 분류`를 기준으로 폴더를 정합니다.
 * 전체적인 틀 안에서 개인의 진도에 맞춰 공부를 진행하면 됩니다.
-* 
 <details markdown="1">
 <summary>알고리즘 분류 예시</summary>
-
-| 문제 번호 |      제목       |                  URL                  |
-| :-------: | :-------------: | :-----------------------------------: | 
-|   13460   |   구슬 탈출 2   | https://www.acmicpc.net/problem/13460 |  
-|   12100   |   2048(Easy)    | https://www.acmicpc.net/problem/12100 |  
-|   3190    |       뱀        | https://www.acmicpc.net/problem/3190  |   
+![image](https://user-images.githubusercontent.com/54973036/126941181-53256043-7225-4289-b98b-51064ff50113.png) 
 </details>
 
 ---- 
