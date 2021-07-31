@@ -68,6 +68,61 @@
     ```
 
 
+## 파이썬 자료형 별 주요 연산자의 시간 복잡도 (Big-O)
+
+<img src="https://user-images.githubusercontent.com/55284181/127728331-099ce209-463a-4461-ac4c-9063a210ff30.png" width="500">
+
+#### list
+|Operation|Example|Big-O|Notes|
+|:---|:---|:---|:---|
+|Index	        |l[i]	            |O(1)	    ||
+|Store	        |l[i] = 0	        |O(1)	    ||
+|Length	        |len(l)	            |O(1)	    ||
+|Append	        |l.append(5)	    |O(1)	    ||
+|Pop	        |l.pop()	        |O(1)	    |l.pop(-1) 과 동일|
+|Clear	        |l.clear()	        |O(1)	    |l = [] 과 유사|
+|Slice	        |l[a:b]	            |O(b-a)	    |슬라이싱되는 요소의 개수에 비례; l[:] : O(len(l)-0)=O(N)|
+|Extend	        |l.extend(l2)	    |O(len(l2))	|확장 길이에 따라|
+|Construction	|list(…)	        |O(len(…))	|요소 길이에 따라|
+|check ==, !=	|l1 == l2	        |O(N)	    |전체 리스트 비교|
+|Insert	        |l.insert(i, v)     |O(N)	    |i 위치에 v를 추가|
+|Pop	        |l.pop(i)	        |O(N)	    |리스트 재배치 필요; l.pop(0) : O(N)|
+|Delete         |del l[i]	        |O(N)	    |리스트 재배치 필요; 최악의 경우 O(N)|
+|Remove	        |l.remove(x))	    |O(N)	    |리스트 재배치 필요|
+|Copy	        |l.copy()	        |O(N)	    |l[:]과 동일 : O(N)|
+|Containment	|x in / not in l	|O(N)	    |선형 검색|
+|Extreme value	|min(l) / max(l)	|O(N)	    |선형 검색|
+|Reverse	    |l.reverse()	    |O(N)	    ||
+|Iteration	    |for v in l:	    |O(N)	    |return/break이 없는 최악의 경우 O(N)|
+|Sort	        |l.sort()	        |O(N Log N)	||
+|Multiply	    |k * l	            |O(k N)	    |3*[1,2,3] : O(N**2)|
+
+- slice, pop, del, remove 비교
+    
+        del이 가장 빠르고 pop()과 remove()는 비슷한 수행시간을 가지며 슬라이싱이 가장 느리다.
+
+    + **slice** : 원본 리스트는 유지하고, 추출하고자 하는 내용을 새롭게 메모리에 할당한다.
+    + **pop** : 지우고자 하는 리스트의 인덱스를 인자로 받는다. 원본 리스트 변형 후 떼어낸 원소를 리턴한다. 제거된 값 이후를 전부 한칸씩 당겨줘야 한다.
+    + **del** : pop과 마찬가지로 지우고자 하는 리스트의 인덱스를 인자로 받는다. 제거된 값 이후를 전부 한칸씩 당겨줘야 한다.
+    + **remove** : 지우고자 하는 값을 인자로 받는다. 만약 지우고자 하는 값이 리스트 내에 2개 이상일 경우 순서상 가장 앞에 있는 값을 지운다. 해당 값을 삭제한 후, 제거된 값 이후를 전부 한칸씩 당겨줘야 한다.
+    + 원본 리스트의 요소 개수가 적을 경우, 슬라이싱이 pop()보다 빠를 수 있다.
+
+#### Dict
+|Operation|Example|Big-O|Notes|
+|:---|:---|:---|:---|
+|Index	        |d[k]	        |O(1)       ||
+|Store	        |d[k] = v	    |O(1)       ||
+|Length	        |len(d)	        |O(1)       ||
+|Delete	        |del d[k]	    |O(1)       ||
+|get/setdefault	|d.method	    |O(1)       ||
+|Pop	        |d.pop(k)	    |O(1)       ||
+|Pop item	    |d.popitem()	|O(1)       ||
+|Clear	        |d.clear()	    |O(1)	    |s = {} or = dict() 유사|
+|View	        |d.keys()	    |O(1)	    |d.values() 동일|
+|Construction	|dict(…)	    |O(len(…))  ||
+|Iteration	    |for k in d:	|O(N)       ||
+
+
 ## 자주 사용되는 함수
 
 - ```"".join(list)```
@@ -77,7 +132,11 @@
 
 
 ---
-#### 출처
+### reference
+- [마크다운 작성법](https://gist.github.com/ihoneymon/652be052a0727ad59601)
 - [파이썬 입력 받기](https://velog.io/@yeseolee/Python-%ED%8C%8C%EC%9D%B4%EC%8D%AC-%EC%9E%85%EB%A0%A5-%EC%A0%95%EB%A6%ACsys.stdin.readline)
 - [점프 투 파이썬](https://wikidocs.net/book/1)
+- [파이썬 자료형 별 주요 연산자의 시간 복잡도 (Big-O)](https://wayhome25.github.io/python/2017/06/14/time-complexity/)
+- [알고리즘의 시간복잡도](https://debugdaldal.tistory.com/158)
+- [slice, pop, del 성능 비교](https://brownbears.tistory.com/452)
 - [파이썬 join 함수](https://blockdmask.tistory.com/468)
