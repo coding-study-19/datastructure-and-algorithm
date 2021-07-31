@@ -24,3 +24,5 @@ for i in range(n):
             print(stack[-1])
         else:
             print('-1')
+
+            
