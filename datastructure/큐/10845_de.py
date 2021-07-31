@@ -35,10 +35,3 @@ for _ in range(N):
             print(queue[-1])
         else:
             print(-1)
-
-
-# q = deque()
-# q.append(1)
-
-# print(q)
-
