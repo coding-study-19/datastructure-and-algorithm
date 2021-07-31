@@ -1,6 +1,6 @@
 #1406 에디터
 import sys
-r_stack = []
+r_stack = [] 
 l_stack = list(sys.stdin.readline().rstrip())
 M = int(sys.stdin.readline())
 
@@ -29,7 +29,6 @@ for _ in range(M):
        l_stack.append(command[1])
         
 print("".join(l_stack+list(reversed(r_stack))))
-
 
 #기존 코드
 # import sys

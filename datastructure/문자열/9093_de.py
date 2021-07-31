@@ -1,4 +1,5 @@
 #9093 단어 뒤집기 
+
 import sys
 T = int(sys.stdin.readline())
 

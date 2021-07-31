@@ -1,4 +1,5 @@
 #1874 스택수열
+
 import sys
 n = int(sys.stdin.readline())
 stack=[]
