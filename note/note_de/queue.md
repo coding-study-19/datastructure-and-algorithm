@@ -102,6 +102,8 @@
 ---
 * 관련 문제
     * [백준 10845번](https://github.com/coding-study-19/datastructure-and-algorithm/blob/main/datastructure/%ED%81%90/10845_de.py)
+     ,[백준 1158번](https://github.com/coding-study-19/datastructure-and-algorithm/blob/main/datastructure/%EB%8D%B1/1158_de.py)
+     ,[백준 10866번](https://github.com/coding-study-19/datastructure-and-algorithm/blob/main/datastructure/%EB%8D%B1/10866_de.py)
 ---
 #### 출처
 - [파이썬에서 큐 자료구조 사용하기](https://www.daleseo.com/python-queue/)
