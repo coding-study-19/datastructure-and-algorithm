@@ -13,4 +13,4 @@
 ---
 
 - 관련 문제
-  + [백준 1406번](https://github.com/coding-study-19/datastructure-and-algorithm/blob/main/datastructure/%EC%8A%A4%ED%83%9D/1406_de.py)
+  + [백준 1406번](https://github.com/coding-study-19/datastructure-and-algorithm/blob/main/datastructure/%EC%8A%A4%ED%83%9D/1406_de.py), [백준 17298번](https://github.com/coding-study-19/datastructure-and-algorithm/blob/main/datastructure/%EC%8A%A4%ED%83%9D/17298_de.py)
