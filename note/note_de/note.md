@@ -1,6 +1,10 @@
-join 함수
-map
-객체 복사
+<정리>
+* deque : (https://appia.tistory.com/203)
+* 얕은 복사 vs 깊은 복사 : (https://blueshw.github.io/2016/01/20/shallow-copy-deep-copy/)
+* 인덱스 위치 : (https://ooyoung.tistory.com/78)
+* 슬라이스 : (https://nirsa.tistory.com/41)
+* 값 삭제 : (https://ponyozzang.tistory.com/587)
+* filter : (https://blockdmask.tistory.com/532) , (https://www.daleseo.com/python-filter/)
 # ✏️노트
 ---
 ## 📊파이썬 함수
