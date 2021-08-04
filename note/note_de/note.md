@@ -5,6 +5,7 @@
 * 슬라이스 : (https://nirsa.tistory.com/41)
 * 값 삭제 : (https://ponyozzang.tistory.com/587)
 * filter : (https://blockdmask.tistory.com/532) , (https://www.daleseo.com/python-filter/)
+* isalnum,slice와reverse로 스택의 특정 구간 수정 가능(https://github.com/coding-study-19/datastructure-and-algorithm/blob/main/datastructure/%EB%AC%B8%EC%9E%90%EC%97%B4/17413_de.py)
 # ✏️노트
 ---
 ## 📊파이썬 함수
