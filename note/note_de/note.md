@@ -1,6 +1,5 @@
 <정리>
 * deque : (https://appia.tistory.com/203)
-* 얕은 복사 vs 깊은 복사 : (https://blueshw.github.io/2016/01/20/shallow-copy-deep-copy/)
 * 인덱스 위치 : (https://ooyoung.tistory.com/78)
 * 슬라이스 : (https://nirsa.tistory.com/41)
 * 값 삭제 : (https://ponyozzang.tistory.com/587)
@@ -163,6 +162,24 @@
         it3.__next__() # a
         it3.__next__() # b
     ```
+### 3. 파이썬의 변수
+*  파이썬에서 데이터, 함수, 클래스, 모듈, 패키지 등은 모두 객체(object)로 취급한다. 대입연산자를 통해 값을 복사하는 것이 아니라 값을 참조한다. 즉 변수는 객체를 참조하는 객체에 연결된 이름에 불과하다는 것.
+* 그래서 C언어처럼 함수 내부에 선언한 지역 변수가 함수가 실행될 때 생성되고 종료될 때 소멸한다는 개념이 없다.
+    ```python
+        #값이 참조됨
+        n = 17
+        id(17) # 5678 
+        id(n) # 5678
+        
+        #함수의 영향을 받지 않는 지역변수
+        n=1
+        def func():
+            x=1
+            id(x) #1234
+        id(1) #1234
+        id(n) #1234
+    ```
+#### 3-1. [얕은 복사,깊은 복사](https://blueshw.github.io/2016/01/20/shallow-copy-deep-copy/)
 
 ---
 #### 출처
