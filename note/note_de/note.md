@@ -4,12 +4,12 @@
 * 슬라이스 : (https://nirsa.tistory.com/41)
 * 값 삭제 : (https://ponyozzang.tistory.com/587)
 * filter : (https://blockdmask.tistory.com/532) , (https://www.daleseo.com/python-filter/)
-* isalnum,slice와reverse로 스택의 특정 구간 수정 가능(https://github.com/coding-study-19/datastructure-and-algorithm/blob/main/datastructure/%EB%AC%B8%EC%9E%90%EC%97%B4/17413_de.py)
+* slice와reverse로 스택의 특정 구간 수정 가능(https://github.com/coding-study-19/datastructure-and-algorithm/blob/main/datastructure/%EB%AC%B8%EC%9E%90%EC%97%B4/17413_de.py)
 # ✏️노트
 ---
 ## 📊파이썬 함수
 
-### 1. join 함수
+### 1. join( )
 ```join함수```는 매개변수로 들어온 ```반복 가능한(iterable)```문자열 객체에 있는 요소 하나하나를 합쳐서 하나의 문자열로 바꾸어 반환한다.
 * "구분자".join(리스트)
   
@@ -25,8 +25,7 @@
         # a b c d 1 2 3
      ```
 
-
-### 2. map 함수
+### 2. map( )
 ```map```은 ```반복 가능한(iterable)객체```의요소를 지정된 함수로 처리해주는 함수다. map은 원본 객체를 변경하지 않고 새 객체를 생성한다. 보통 list나 tuple을 대상으로 주로 사용한다.
 * map(변환 함수, iterable객체)
   
@@ -58,6 +57,33 @@
         a = ",".join(list(map(str,a)))
         # a : "1,2,3,4,5"
     ```
+### 3. isupeer( ), islower( ), isspace( ), isnumeric( )..
+* 말 그대로 해석하면 된다. 대문자인지, 소문자인지, 공백인지, 숫자인지 등등..
+
+  
+    ```python 
+        word = Ab 1
+        word[0].isupper() #True
+        word[1].islower() #True
+        word[2].isspace() #True
+        word[3].isnumeric() #True
+    ```
+* 관련 문제 : [백준 17413번](https://github.com/coding-study-19/datastructure)
+
+### 4. ord( ), chr( )
+```아스키코드 65 ~ 90```은 ```알파벳 대문자 A~Z```를, ```아스키코드 97~ 122```는 ```알파벳 소문자 a~z```를 의미한다.
+* ord( ) 
+  * 문자를 아스키코드로 변환하는 함수
+* chr( )
+  * 아스키코드를 문자로 변환하는 함수
+    ```python 
+        ord("A") #65
+        ord("a") #97
+        chr(65) #A
+        chr(97) #a
+    ```
+* 관련 문제 : [백준 10808번](https://github.com/coding-study-19/datastructure-and-algorithm/blob/main/datastructure/%EB%AC%B8%EC%9E%90%EC%97%B4/10808_de.py)
+
 ---
 ## 📌파이썬 개념
 파이썬에서 중요한 개념 중에 하나가 "반복 가능한(iterable)"이다.
