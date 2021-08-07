@@ -1,16 +1,15 @@
 <정리>
 * deque : (https://appia.tistory.com/203)
-* 얕은 복사 vs 깊은 복사 : (https://blueshw.github.io/2016/01/20/shallow-copy-deep-copy/)
 * 인덱스 위치 : (https://ooyoung.tistory.com/78)
 * 슬라이스 : (https://nirsa.tistory.com/41)
 * 값 삭제 : (https://ponyozzang.tistory.com/587)
 * filter : (https://blockdmask.tistory.com/532) , (https://www.daleseo.com/python-filter/)
-* isalnum,slice와reverse로 스택의 특정 구간 수정 가능(https://github.com/coding-study-19/datastructure-and-algorithm/blob/main/datastructure/%EB%AC%B8%EC%9E%90%EC%97%B4/17413_de.py)
+* slice와reverse로 스택의 특정 구간 수정 가능(https://github.com/coding-study-19/datastructure-and-algorithm/blob/main/datastructure/%EB%AC%B8%EC%9E%90%EC%97%B4/17413_de.py)
 # ✏️노트
 ---
 ## 📊파이썬 함수
 
-### 1. join 함수
+### 1. join( )
 ```join함수```는 매개변수로 들어온 ```반복 가능한(iterable)```문자열 객체에 있는 요소 하나하나를 합쳐서 하나의 문자열로 바꾸어 반환한다.
 * "구분자".join(리스트)
   
@@ -26,8 +25,7 @@
         # a b c d 1 2 3
      ```
 
-
-### 2. map 함수
+### 2. map( )
 ```map```은 ```반복 가능한(iterable)객체```의요소를 지정된 함수로 처리해주는 함수다. map은 원본 객체를 변경하지 않고 새 객체를 생성한다. 보통 list나 tuple을 대상으로 주로 사용한다.
 * map(변환 함수, iterable객체)
   
@@ -59,6 +57,33 @@
         a = ",".join(list(map(str,a)))
         # a : "1,2,3,4,5"
     ```
+### 3. isupeer( ), islower( ), isspace( ), isnumeric( )..
+* 말 그대로 해석하면 된다. 대문자인지, 소문자인지, 공백인지, 숫자인지 등등..
+
+  
+    ```python 
+        word = Ab 1
+        word[0].isupper() #True
+        word[1].islower() #True
+        word[2].isspace() #True
+        word[3].isnumeric() #True
+    ```
+* 관련 문제 : [백준 17413번](https://github.com/coding-study-19/datastructure)
+
+### 4. ord( ), chr( )
+```아스키코드 65 ~ 90```은 ```알파벳 대문자 A~Z```를, ```아스키코드 97~ 122```는 ```알파벳 소문자 a~z```를 의미한다.
+* ord( ) 
+  * 문자를 아스키코드로 변환하는 함수
+* chr( )
+  * 아스키코드를 문자로 변환하는 함수
+    ```python 
+        ord("A") #65
+        ord("a") #97
+        chr(65) #A
+        chr(97) #a
+    ```
+* 관련 문제 : [백준 10808번](https://github.com/coding-study-19/datastructure-and-algorithm/blob/main/datastructure/%EB%AC%B8%EC%9E%90%EC%97%B4/10808_de.py)
+
 ---
 ## 📌파이썬 개념
 파이썬에서 중요한 개념 중에 하나가 "반복 가능한(iterable)"이다.
@@ -69,6 +94,7 @@
 
 이렇게 생각할 수 있다. 따라서 문자열 따로, 리스트 따로, 튜플 따로 학습하는 것이 아니라 파이썬 표준에서 제시하는 기본 개념인 반복 가능한과 시퀀스를 이해하는 것이 중요하다.
 
+![사진](https://dojang.io/pluginfile.php/13952/mod_page/content/3/039002.png)
 ### 1. 시퀀스 자료형(sequence)
 
 파이썬에서는 ```리스트```, ```튜플```,``` range```, ```문자열```처럼 값이 연속적으로 이어진 자료형을 시퀀스 자료형(sequence types)이라고 부른다.
@@ -143,7 +169,6 @@
 
 *  반복 가능한 객체는 말 그대로 반복할 수 있는 객체인데 우리가 흔히 사용하는 ```문자열```, ```리스트```, ```딕셔너리```, ```세트```가 이에 해당한다. 즉, 요소가 여러 개 들어있고, 한 번에 하나씩 꺼낼 수 있는 객체를 의미한다.
   
-    ![사진](https://dojang.io/pluginfile.php/13952/mod_page/content/3/039002.png)
 * ```이터레이터(iterator)```는 값을 차례대로 꺼낼 수 있는 객체(object)다. 
 
   * [ 예시 ] ```for i in range(100)```는 0부터 99까지 연속된 숫자를 만들어낸다고 하는데, 사실은 숫자를 모두 만들어 내는 것이 아니라 0부터 99까지 값을 차례대로 꺼낼 수 있는 ```이터레이터```를 하나만 만들어내는 것이다. 이후 반복할 때마다 ```이터레이터```에서 숫자를 하나씩 꺼낸다. 만약 연속된 숫자를 미리 만들면 숫자가 많아질 때는 메모리를 많이 사용하게 되므로 성능이 저하되는데,파이썬에서는 ```이터레이터```만 생성하고 값이 필요한 시점이 되었을 때 값을 만드는 방식을 사용해 메모리 낭비를 줄인다.
@@ -163,6 +188,24 @@
         it3.__next__() # a
         it3.__next__() # b
     ```
+### 3. 파이썬의 변수
+*  파이썬에서 데이터, 함수, 클래스, 모듈, 패키지 등은 모두 객체(object)로 취급한다. 대입연산자를 통해 값을 복사하는 것이 아니라 값을 참조한다. 즉 변수는 객체를 참조하는 객체에 연결된 이름에 불과하다는 것.
+* 그래서 C언어처럼 함수 내부에 선언한 지역 변수가 함수가 실행될 때 생성되고 종료될 때 소멸한다는 개념이 없다.
+    ```python
+        #값이 참조됨
+        n = 17
+        id(17) # 5678 
+        id(n) # 5678
+        
+        #함수의 영향을 받지 않는 지역변수
+        n=1
+        def func():
+            x=1
+            id(x) #1234
+        id(1) #1234
+        id(n) #1234
+    ```
+#### 3-1. [얕은 복사,깊은 복사](https://blueshw.github.io/2016/01/20/shallow-copy-deep-copy/)
 
 ---
 #### 출처
