@@ -1,7 +1,7 @@
 # ✏️노트
 
 
-## 파이썬 입력 받기 (sys.stdin.readline)
+## 1. 파이썬 입력 받기 (sys.stdin.readline)
 
 반복문으로 여러줄 입력 받는 상황에서 ```input()```을 사용할 경우 시간 초과가 발생할 수 있기 때문에 ```sys.stdin.readline()```을 사용해야 시간 초과가 발생하지 않는다.
 
@@ -67,8 +67,20 @@
     data = [sys.stdin.readline().strip() for _ in range(n)]
     ```
 
+#### readline()과 input()의 EOF 입력시 차이점
+- ```input()```은 EOFError를 발생시킨다.
 
-## 파이썬 자료형 별 주요 연산자의 시간 복잡도 (Big-O)
+- ```sys.stdin.readline()```은 빈 문자열을 반환한다.
+    ```python
+    import sys
+
+    sentence = sys.stdin.readline()
+    if not sentence:
+        break
+    ```
+
+
+## 2. 파이썬 자료형 별 주요 연산자의 시간 복잡도 (Big-O)
 
 <img src="https://user-images.githubusercontent.com/55284181/127728331-099ce209-463a-4461-ac4c-9063a210ff30.png" width="500">
 
@@ -123,11 +135,140 @@
 |Iteration	    |for k in d:	|O(N)       ||
 
 
-## 자주 사용되는 함수
+## 3. 자주 사용되는 함수
 
-- ```"".join(list)```
+- ```"".join(list)``` : 매개변수로 들어온 리스트에 있는 요소 하나하나를 합쳐서 하나의 문자열로 바꾸어 반환하는 함수
 
-    매개변수로 들어온 리스트에 있는 요소 하나하나를 합쳐서 하나의 문자열로 바꾸어 반환하는 함수
+
+## 4. 입출력 관련 issue
+> 실습 환경 : Ubuntu20.04 terminal
+
+### 4-1. issue
+아래와 같이 코드 작성 시 (의미 없는 코드) 문자열이 화면에 출력되지 않는 문제가 발생하였다.
+
+```python
+import sys
+
+s = sys.stdin.readline().strip() # 문자열에서 개행문자 제거
+for i in s:
+    print(s, end="")
+
+while (1): # 무한루프
+    continue
+```
+
+```python
+s = "abcde".strip() # 문자열에서 개행문자 제거
+for i in s:
+    print(s, end="")
+
+while (1): # 무한루프
+    continue
+```
+
+### 4-2. 스트림과 버퍼 (C/C++)
+- 스트림(stream)
+
+    <img src="https://user-images.githubusercontent.com/55284181/128626958-7bf78e70-441a-4f52-8c09-9a7d08286e7f.png" width="500" title="stream">
+
+    C, C++ 프로그램은 파일이나 콘솔의 입출력을 직접 다루지 않고, 스트림(stream)이라는 흐름을 통해 다룬다.
+    스트림(stream)이란 **실제의 입력이나 출력이 표현된 데이터의 이상화된 흐름**을 의미한다.
+    즉, 스트림은 운영체제에 의해 생성되는 가상의 연결 고리를 의미하며, 중간 매개자 역할을 한다.
+
+    <img src="https://user-images.githubusercontent.com/55284181/128626959-056abbff-1795-462f-8b41-5dfb82a65a25.png" width="500" title="stream io">
+
+    콘솔 장치에 대한 스트림은 프로그램 실행 시 자동으로 생성되며, 프로그램 종료 시 자동으로 소멸한다.
+
+- 버퍼(buffer)
+
+    <img src="https://user-images.githubusercontent.com/55284181/128626957-d068eace-0b5f-4259-a921-61188d44168d.png" width="500" title="buffer">
+
+    C++ 프로그램의 경우 스트림은 내부에 버퍼(buffer)라는 **임시 메모리 공간**을 가지고 있다.
+    또한, C언어의 표준 입출력 함수를 사용할 때 역시 버퍼(buffer)를 사용하게 된다.
+    이러한 버퍼를 이용하면 입력과 출력을 좀 더 효율적으로 처리할 수 있게 된다.
+
+- 입출력 버퍼
+
+    C 언어의 입출력 함수들은 내부적으로 입출력 버퍼를 사용하여 데이터를 처리한다.
+
+    표준 입력(키보드)은 입력되는 문자를 입력 버퍼에 저장했다가 엔터 키(\n)가 입력되면 지정된 변수(배열, 할당한 메모리)로 옮긴다(버퍼가 비워짐).
+    마찬가지로 표준 출력(화면)은 출력 버퍼에 문자가 저장되었다가 특정 조건에 의해 버퍼가 비워지면 화면에 출력된다(입출력 버퍼가 비워지는 시점은 운영체제나 설정에 따라 달라짐).
+    이처럼 입출력 버퍼에 데이터를 저장하는 행동을 **버퍼링(buffering)** 이라고 부른다.
+
+- 버퍼링 방식(Buffering modes) - C Standard I/O
+
+    - line buffered : newline 을 만나면 출력한다. 보통 키보드 입력에서 사용된다.
+    - full buffered : 버퍼가 차면 출력한다. 보통 파일 입출력에서 사용된다.
+    - unbuffered : 버퍼링을 하지 않고 바로 출력한다. (1 byte)
+
+    명령이 실행되면 자동으로 stdin, stdout, stderr 세 개의 stream 이 생성되는데 버퍼와 관련해서 각각 다음과 같은 특징이 있다.
+
+    - stdin : 터미널에서 입력을 받으면 line buffered or unbuffered 이고 그외는 full buffered 이다.
+    - stdout : 터미널에 연결되어 있으면 line buffered 이고 그외는 full buffered 이다.
+    - stderr : 항상 unbuffered 입니다. 그러므로 stderr 로 메시지를 출력하면 바로 표시가 된다.
+
+    이러한 입력 작업뿐만 아니라 ```printf()``` 함수 등을 통해 모니터에 데이터를 출력할 때도 버퍼를 사용한다.
+    출력하고자 하는 데이터는 일단 출력 버퍼에 저장되었다가 출력 스트림을 통해 모니터로 전송된다.
+
+
+
+### 4-3. Python ```print()``` 함수
+- 공식 문서
+
+    ```python
+    >>> help(print)
+    Help on built-in function print in module builtins:
+
+    print(...)
+        print(value, ..., sep=' ', end='\n', file=sys.stdout, flush=False)
+        
+        Prints the values to a stream, or to sys.stdout by default.
+        Optional keyword arguments:
+        file:  a file-like object (stream); defaults to the current sys.stdout.
+        sep:   string inserted between values, default a space.
+        end:   string appended after the last value, default a newline.
+        flush: whether to forcibly flush the stream.
+    ```
+
+- flush
+
+    문서에서 flush에 대한 해석을 직역하면 **"스트림을 강제로 플러시할지에 대한 여부"** 를 의미한다.
+
+    키보드와 화면 사이에는 '버퍼(buffer)' 개념 또는 장치가 있어서 버퍼에서 내용을 출력 전에 잠시 보관하게 된다. flush는 키보드에서 입력되어 버퍼에 저장된 내용을 출력방향(화면)으로 바로 밀어넣는다는 의미이다.
+    
+    버퍼에 값이 들어올 때마다 flush를 해주는 것은 성능 면에서 비용이 크기 때문에, 기본 설정값은 ```flush = False``` 이다.
+    이를 ```flush = True```로 설정하면 print() 함수가 실행될 때마다 스트림이 강제로 flush(clear)되어 출력방향(화면)에 바로 출력된다.
+
+    ```python
+    import time
+
+    for i in range(10):
+        print(i, end = ' ')
+        time.sleep(1) 
+    ```
+
+    위와 같이 코드를 작성할 경우 ```flush = False```인 상태에서도 조금 늦게 flush가 되어 화면에 출력되는 것을 볼 수 있다.
+    파이썬의 end parameter로 설정된 ```\n```의 경우 바로 내용이 flush되지만, ' '의 경우 output이 buffered 상태여서 9초가 지난 후 10초에 모든 숫자가 동시에 출력되는 것이다.
+    이는 실습 환경에 따라 결과가 달라질 수 있다.
+
+- 파이썬 ```print()``` 함수 출력 조건 (실제와 다를 수 있음)
+
+    - 출력 버퍼가 가득 찼을 때
+    - 개행문자 ```\n```을 만났을 때
+    - 프로그램이 종료됐을 때
+    - 출력 버퍼가 buffered 상태에서 9초가 지난 후
+
+- 임의로 생성하는 상수, 변수의 경우 파이썬이 알아서 개행문자를 붙여주는 것으로 추정된다.
+
+    아래 코드처럼 ```strip()``` 함수로 개행문자를 없애주지 않으면 출력이 정상적으로 이루어진다.
+    ```python
+    s = "abcde"
+    for i in s:
+        print(s, end="")
+
+    while (1): # 무한루프
+        continue
+    ```
 
 
 
@@ -136,7 +277,15 @@
 - [마크다운 작성법](https://gist.github.com/ihoneymon/652be052a0727ad59601)
 - [파이썬 입력 받기](https://velog.io/@yeseolee/Python-%ED%8C%8C%EC%9D%B4%EC%8D%AC-%EC%9E%85%EB%A0%A5-%EC%A0%95%EB%A6%ACsys.stdin.readline)
 - [점프 투 파이썬](https://wikidocs.net/book/1)
+- [입출력에서 readline()과 input()의 EOF 입력시 차이점](https://joewithtech.tistory.com/26)
 - [파이썬 자료형 별 주요 연산자의 시간 복잡도 (Big-O)](https://wayhome25.github.io/python/2017/06/14/time-complexity/)
 - [알고리즘의 시간복잡도](https://debugdaldal.tistory.com/158)
 - [slice, pop, del 성능 비교](https://brownbears.tistory.com/452)
 - [파이썬 join 함수](https://blockdmask.tistory.com/468)
+- [print() 함수의 새로운 면모(sep, end, file, flush)](https://velog.io/@janeljs/python-print-sep-end-file-flush)
+- [python print advanced](https://gist.github.com/shoark7/fa0a66bfc37d63890603a276f974f0b6)
+- [C++ 스트림과 버퍼](https://tcpschool.com/cpp/cpp_io_streamBuffer)
+- [C언어 콘솔 입출력](http://tcpschool.com/c/c_io_console)
+- [C언어 기본적인 입출력](http://tcpschool.com/c/c_string_io)
+- [C언어 코딩도장 입출력 버퍼 활용하기](https://dojang.io/mod/page/view.php?id=763)
+- [Buffering](https://mug896.github.io/bash-shell/buffering.html)
