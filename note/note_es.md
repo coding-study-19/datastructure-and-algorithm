@@ -271,6 +271,35 @@ while (1): # 무한루프
     ```
 
 
+## 5. 수학
+
+### 5-1. 유클리드 호제법
+
+#### 최대공약수
+a, b의 공통된 약수 중, **가장 큰 약수**. 이때 최대공약수가 1이라면 a, b는 서로소(coprime)라고 한다. 시간복잡도는 ```O(n)``` 이다.
+
+```python
+def gcd(a, b):
+    GCD = 1  # 어차피 공약수에 1은 무조건 들어가므로...
+    n = 2
+    while n <= min(a,b):
+        if (a % n == 0) and (b % n == 0):
+            GCD = n
+        n += 1
+    return GCD
+```
+
+#### 유클리드 호제법으로 최대공약수 구하기
+a,b의 최대공약수는 b와 a%b의 최대공약수와 같다. 시간복잡도는 ```O(log n)``` 이다.
+
+```python
+def gcd(a, b):
+    if b == 0:
+        return a
+    else :
+        return gcd(b, a%b)
+```
+
 
 ---
 ### reference
@@ -289,3 +318,4 @@ while (1): # 무한루프
 - [C언어 기본적인 입출력](http://tcpschool.com/c/c_string_io)
 - [C언어 코딩도장 입출력 버퍼 활용하기](https://dojang.io/mod/page/view.php?id=763)
 - [Buffering](https://mug896.github.io/bash-shell/buffering.html)
+- [수학 : 유클리드 호제법, 에라토스테네스의 체](https://infinitt.tistory.com/232)
