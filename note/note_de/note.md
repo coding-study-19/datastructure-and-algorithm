@@ -5,6 +5,7 @@
 * 값 삭제 : (https://ponyozzang.tistory.com/587)
 * filter : (https://blockdmask.tistory.com/532) , (https://www.daleseo.com/python-filter/)
 * slice와reverse로 스택의 특정 구간 수정 가능(https://github.com/coding-study-19/datastructure-and-algorithm/blob/main/datastructure/%EB%AC%B8%EC%9E%90%EC%97%B4/17413_de.py)
+* mutable imutable(https://dpdpwl.tistory.com/82)
 # ✏️노트
 ---
 ## 📊파이썬 함수
@@ -83,6 +84,34 @@
         chr(97) #a
     ```
 * 관련 문제 : [백준 10808번](https://github.com/coding-study-19/datastructure-and-algorithm/blob/main/datastructure/%EB%AC%B8%EC%9E%90%EC%97%B4/10808_de.py)
+
+### 5. 파이썬 진법 변환 함수
+
+#### 1) n진수 -> 10진수
+* int(string base) 함수<br>
+    * base에 원하는 진법을 넣으면 string을 해당 진법의 수로 인식해 10진수로 변환해준다.
+    ```python
+        print(int('111',2)) #7
+        print(int('222',3)) #26
+        print(int('333',4)) #63
+        print(int('444',5)) #124
+        print(int('555',6)) #215
+        print(int('FFF',16) #4095
+    ```
+#### 2) 10진수 -> 2,8,16진수
+* 2,8,16 진수는 각각 bin( ), oct( ), hex( ) 함수를 지원한다.
+* 앞의 진수 식별 문자를 없애고 출력하고 싶다면 슬라이싱을 이용하면 된다.
+
+    ```python
+        print(bin(10)) # 0b1010
+        print(oct(10)) # 0o12
+        print(hex(10)) # 0xa
+
+        print(bin(10)[2:]) #1010
+    ```
+
+    
+* 관련 문제 : [백준 1373번]()
 
 ---
 ## 📌파이썬 개념
@@ -206,10 +235,44 @@
         id(n) #1234
     ```
 #### 3-1. [얕은 복사,깊은 복사](https://blueshw.github.io/2016/01/20/shallow-copy-deep-copy/)
+### 4. mutable , immutable
 
+### 5. 파이썬 모듈
+ 파이썬에선 하나의 스크립트 프로그램을 ``모듈``이라고 한다. 모듈 이름은 확장자( .py )를 뺀 ``파일의 이름`` 자체로 설정한다.(예: dodo.py면 dodo가 __name__이 됨) 
+* 이때 해당 파일 안에서 함수를 실행시키면 ``__name__``은 ``__main__``이 된다.( 예: dodo.py 실행 시 __main__이 __name__이 됨 ) 
+    ```python
+        <dodo.py>
+
+        def plus(a,b):
+            print(f"{a + b} 모듈이름 : {__name__}")
+        if __name__ == "__main__":
+            plus(0,0)
+
+        #실행 결과 -> 0 모듈이름 : __main__ 
+    ```
+* 반면 다른 파일에서 모듈을 import해서 사용하는 경우 ```__name__```엔 ```원래 모듈의 이름```이 담긴다.
+    ```python
+        <hoho.py>
+        import dodo
+
+        plus(2,4) # 6 모듈이름 : __dodo__
+    ```
+* ```if __name__ == "__main__" ```의 역할
+  
+  * ``__name__``은 파이썬에서 정한 이미 존재하는 변수다. 이 변수에 해당 파이썬의 파일의 이름( =모듈의 이름 )을 담게 된다. 즉 위의 if문이 의미하는 것은 해당 파일 안에서 함수를 실행시킬 때만 if문 안의 코드가 실행되게 하는 것이다. 즉 다른 파일에서 해당 파일을 import해서 사용하는 경우 if문 안의 코드는 실행되지 않는다. 
+  
+  * <dodo.py>의 if문을 지운 경우
+    ```python
+        <hoho.py>
+        import dodo
+
+        plus(2,4) # 0 모듈이름 : __dodo__
+                  # 6 모듈이름 : __dodo__
+    ```
 ---
 #### 출처
 - [파이썬에서 join 사용하기](https://blockdmask.tistory.com/468)
 - [map_코딩도장](https://dojang.io/mod/page/view.php?id=2286)
 - [sequence_코딩도장](https://dojang.io/mod/page/view.php?id=2205)
 - [iterable_코딩도장](https://dojang.io/mod/page/view.php?id=2405)
+- [if __name__ == "__main__"](https://lovelydiary.tistory.com/297)
