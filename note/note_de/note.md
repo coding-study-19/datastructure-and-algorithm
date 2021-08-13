@@ -85,6 +85,34 @@
     ```
 * 관련 문제 : [백준 10808번](https://github.com/coding-study-19/datastructure-and-algorithm/blob/main/datastructure/%EB%AC%B8%EC%9E%90%EC%97%B4/10808_de.py)
 
+### 5. 파이썬 진법 변환 함수
+
+#### 1) n진수 -> 10진수
+* int(string base) 함수<br>
+    * base에 원하는 진법을 넣으면 string을 해당 진법의 수로 인식해 10진수로 변환해준다.
+    ```python
+        print(int('111',2)) #7
+        print(int('222',3)) #26
+        print(int('333',4)) #63
+        print(int('444',5)) #124
+        print(int('555',6)) #215
+        print(int('FFF',16) #4095
+    ```
+#### 2) 10진수 -> 2,8,16진수
+* 2,8,16 진수는 각각 bin( ), oct( ), hex( ) 함수를 지원한다.
+* 앞의 진수 식별 문자를 없애고 출력하고 싶다면 슬라이싱을 이용하면 된다.
+
+    ```python
+        print(bin(10)) # 0b1010
+        print(oct(10)) # 0o12
+        print(hex(10)) # 0xa
+
+        print(bin(10)[2:]) #1010
+    ```
+
+    
+* 관련 문제 : [백준 1373번]()
+
 ---
 ## 📌파이썬 개념
 파이썬에서 중요한 개념 중에 하나가 "반복 가능한(iterable)"이다.
