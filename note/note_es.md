@@ -332,6 +332,46 @@ def eratos(n): # 에라토스테네스의 체
 ```
 
 
+### 5-3. 진법 변환
+
+#### X진수 -> 10진수
+- 내장함수 ```int()``` 사용
+    ```python
+    int(string, base)
+
+    print(int('111', 2)) # 7 출력
+    ```
+
+- 코드 직접 작성
+    ```python
+    def XToDec(X, n): # X진수 -> 10진수
+        res = 0
+        digit = len(n)
+        for i in range(digit):
+            res += int(n[-1]) * (X**i)
+            n = n[:-1]
+        return res
+    ```
+
+#### 10진수 -> X진수
+- 내장함수 ```bin()```, ```oct()```, ```hex()``` 사용
+    ```python
+    print(bin(10)) # 2진수 - 0b1010 출력
+    print(oct(10)) # 8진수 - 0o12 출력
+    print(hex(10)) # 16진수 - 0xa 출력
+    ```
+
+- 코드 직접 작성
+    ```python
+    def DecToX(X, n): # 10진수 -> X진수
+        res = ""
+        while n != 0:
+            res += str(n % X)
+            n //= X
+        return res[::-1]
+    ```
+
+
 
 
 ---
@@ -353,3 +393,4 @@ def eratos(n): # 에라토스테네스의 체
 - [Buffering](https://mug896.github.io/bash-shell/buffering.html)
 - [수학 : 유클리드 호제법, 에라토스테네스의 체](https://infinitt.tistory.com/232)
 - [에라토스테네스의 체 wiki](https://ko.wikipedia.org/wiki/%EC%97%90%EB%9D%BC%ED%86%A0%EC%8A%A4%ED%85%8C%EB%84%A4%EC%8A%A4%EC%9D%98_%EC%B2%B4)
+- [1373번 파이썬(python) - 2진수 8진수](https://oort-cloud.tistory.com/entry/%EB%B0%B1%EC%A4%80-1373%EB%B2%88-%ED%8C%8C%EC%9D%B4%EC%8D%ACpython-2%EC%A7%84%EC%88%98-8%EC%A7%84%EC%88%98?category=881353)
