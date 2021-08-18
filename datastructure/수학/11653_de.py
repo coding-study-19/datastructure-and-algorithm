@@ -41,22 +41,3 @@ if N!=1:
                         break
     if N!=1:
         print(N)
-
-
-#에라토스테네스 체
-# arr= [True] * (N+1)
-# end = int((N+1)**0.5)+1
-# for i in range(11,end):
-#     if arr[i]:
-#         for j in range(i+i,N+1,i):
-#             if arr[j]:
-#                 arr[j] = False
-
-# for i in range(11,N+1):
-#     if arr[i]:
-#         while(1): 
-#             if (N%i)==0:
-#                 print(i)
-#                 N//=i
-#             else:
-#                 break 
