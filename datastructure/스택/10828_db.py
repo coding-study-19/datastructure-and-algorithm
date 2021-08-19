@@ -1,4 +1,4 @@
-# 백준 _ [200]자료구조1 _ #10828 _ 스택
+# 백준 | [200]자료구조1 | #10828 | 스택 | 스택
 
 import sys
 input = sys.stdin.readline

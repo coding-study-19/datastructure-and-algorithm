@@ -6,6 +6,7 @@ input = sys.stdin.readline
 left_stack = []
 right_stack = []
 string = input().strip()
+
 for i in string:
     left_stack.append(i)
 
