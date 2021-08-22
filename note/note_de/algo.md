@@ -10,10 +10,12 @@
       * 큰 문제를 작은 문제로 나눌 수 있으며, 작은 문제의 답을 모아서 큰 문제를 해결할 수 있다.
     * 중복되는 부분 문제
       * 동일한 작은 문제를 반복적으로 해결해야 한다.
+* 점화식으로 나타낼 수 있다.
+  * 예) 피보니치 수열의 점화식 : ``dp[N] = dp[N-1] + dp[N-2]``
 
 #### 예시) 피보나치 수열
 
-![사진](./img/fibo.png)
+![사진](https://github.com/coding-study-19/datastructure-and-algorithm/blob/main/note/note_de/img/fibo.PNG?raw=true)
 * **단순한 <U>분할 정복</U> 기법을 이용해 피보나치 수열을 구할 경우**
     ```python
         def fibo(x):
