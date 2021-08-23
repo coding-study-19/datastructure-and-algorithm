@@ -49,6 +49,7 @@
 
 ---
 * 관련 문제
+  * [백준 1463번](https://github.com/coding-study-19/datastructure-and-algorithm/blob/main/algorithm/dynamic-programming/1463_de.py), [백준 11726번](https://github.com/coding-study-19/datastructure-and-algorithm/blob/main/algorithm/dynamic-programming/11726_de.py), [백준 11727번](https://github.com/coding-study-19/datastructure-and-algorithm/blob/main/algorithm/dynamic-programming/11727_de.py)
 
 #### 참고
 - [다이나믹 프로그래밍](https://blog.naver.com/ndb796/221233570962)
