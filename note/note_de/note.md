@@ -1,11 +1,13 @@
 <정리>
-* deque : (https://appia.tistory.com/203)
-* 인덱스 위치 : (https://ooyoung.tistory.com/78)
-* 슬라이스 : (https://nirsa.tistory.com/41)
-* 값 삭제 : (https://ponyozzang.tistory.com/587)
-* filter : (https://blockdmask.tistory.com/532) , (https://www.daleseo.com/python-filter/)
-* slice와reverse로 스택의 특정 구간 수정 가능(https://github.com/coding-study-19/datastructure-and-algorithm/blob/main/datastructure/%EB%AC%B8%EC%9E%90%EC%97%B4/17413_de.py)
-* mutable imutable(https://dpdpwl.tistory.com/82)
+* [deque](https://appia.tistory.com/203)
+* [인덱스 위치](https://ooyoung.tistory.com/78)
+* [슬라이스](https://nirsa.tistory.com/41)
+* [값 삭제](https://ponyozzang.tistory.com/587)
+* [filter] (https://blockdmask.tistory.com/532)
+* [filter](https://www.daleseo.com/python-filter/)
+* [slice와reverse로 스택의 특정 구간 수정 가능](https://github.com/coding-study-19/datastructure-and-algorithm/blob/main/datastructure/%EB%AC%B8%EC%9E%90%EC%97%B4/17413_de.py)
+* [mutable imutable](https://dpdpwl.tistory.com/82)
+* [파이썬스러운 코드](https://velog.io/@hamdoe/python-cleancode-2.-%ED%8C%8C%EC%9D%B4%EC%8D%AC%EC%8A%A4%EB%9F%AC%EC%9A%B4-%EC%BD%94%EB%93%9C)
 # ✏️노트
 ---
 ## 📊파이썬 함수
@@ -325,11 +327,50 @@
         plus(2,4) # 0 모듈이름 : __dodo__
                   # 6 모듈이름 : __dodo__
     ```
+### 6. 파이썬 예외처리
+``FileNotFoundError``(디렉터리 안에 없는 파일을 열려고 시도했을 때 발생하는 오류), ``ZeroDivisionError``( 0으로 다른 숫자를 나누는 경우 발생하는 오류),``IndexError``등의 오류가 발생하면 파이썬은 프로그램을 중단하고 오류 메시지를 보여 준다. 이를 무시하고 싶을 때 파이썬은 try, except를 사용해서 예외적으로 오류를 처리할 수 있게 해준다.
+#### 6-1. 오류 예외 처리 기법
+* **try, except 문**
+
+  ```python
+    try:
+        ...
+    except[발생 오류[as오류 메세지 변수]]: #[]안의 내용은 생략 가능
+        ...
+    ```
+    * **모두 생략 시** : 오류 종류에 상관 없이 오류 발생 시 except 블록 수행
+    * **발생 오류만 포함 시** : 특정 오류가 발생했을 경우 except 블록 수행
+    * **모두 표기 시** : 특정 오류가 발생했을 경우, 해당 오류의 에러 메세지를 메세지 변수를 통해 받을 수 있다. 이는 print(메세지 변수)를 통해 출력 가능하다.
+    
+#### 6-2. 오류 일부러 발생시키기
+* 파이썬은 raise 명령어를 사용해 오류를 강제로 발생시킬 수 있다.
+* 프로그램 수행 도중 특수한 경우에만 예외 처리를 하기 위해 종종 예외를 만들어 사용한다. 예외는 파이썬 내장 클래스인 Exception클래스를 상속하여 만들 수 있다.
+```python
+    class Myerror(Exception):
+        pass
+    def isZero(n):
+        if n==0:
+            raise Myerror()
+        return n
+    
+    x = int(input())
+    try:
+        y = isZero(n)
+        print(y)
+    except Myerror:
+        print("입력값이 0입니다") 
+    
+    # 0 => 입력값이 0입니다.
+    # 1 => 1
+```
+### 7. [파이썬 언더바/언더스코어(_)의 의미](https://eine.tistory.com/entry/%ED%8C%8C%EC%9D%B4%EC%8D%AC%EC%97%90%EC%84%9C-%EC%96%B8%EB%8D%94%EB%B0%94%EC%96%B8%EB%8D%94%EC%8A%A4%EC%BD%94%EC%96%B4-%EC%9D%98-%EC%9D%98%EB%AF%B8%EC%99%80-%EC%97%AD%ED%95%A0)
+* [python magic method](https://zzsza.github.io/development/2020/07/05/python-magic-method/)
 ---
-#### 출처
+#### 참고
 - [파이썬에서 join 사용하기](https://blockdmask.tistory.com/468)
 - [map_코딩도장](https://dojang.io/mod/page/view.php?id=2286)
 - [sequence_코딩도장](https://dojang.io/mod/page/view.php?id=2205)
 - [iterable_코딩도장](https://dojang.io/mod/page/view.php?id=2405)
 - [if __name__ == "__main__"](https://lovelydiary.tistory.com/297)
 - [얕은 복사,깊은 복사](https://wikidocs.net/16038)
+- [예외처리](https://wikidocs.net/30)
