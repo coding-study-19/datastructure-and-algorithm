@@ -1,11 +1,13 @@
 <정리>
-* deque : (https://appia.tistory.com/203)
-* 인덱스 위치 : (https://ooyoung.tistory.com/78)
-* 슬라이스 : (https://nirsa.tistory.com/41)
-* 값 삭제 : (https://ponyozzang.tistory.com/587)
-* filter : (https://blockdmask.tistory.com/532) , (https://www.daleseo.com/python-filter/)
-* slice와reverse로 스택의 특정 구간 수정 가능(https://github.com/coding-study-19/datastructure-and-algorithm/blob/main/datastructure/%EB%AC%B8%EC%9E%90%EC%97%B4/17413_de.py)
-* mutable imutable(https://dpdpwl.tistory.com/82)
+* [deque](https://appia.tistory.com/203)
+* [인덱스 위치](https://ooyoung.tistory.com/78)
+* [슬라이스](https://nirsa.tistory.com/41)
+* [값 삭제](https://ponyozzang.tistory.com/587)
+* [filter] (https://blockdmask.tistory.com/532)
+* [filter](https://www.daleseo.com/python-filter/)
+* [slice와reverse로 스택의 특정 구간 수정 가능](https://github.com/coding-study-19/datastructure-and-algorithm/blob/main/datastructure/%EB%AC%B8%EC%9E%90%EC%97%B4/17413_de.py)
+* [mutable imutable](https://dpdpwl.tistory.com/82)
+* [파이썬스러운 코드](https://velog.io/@hamdoe/python-cleancode-2.-%ED%8C%8C%EC%9D%B4%EC%8D%AC%EC%8A%A4%EB%9F%AC%EC%9A%B4-%EC%BD%94%EB%93%9C)
 # ✏️노트
 ---
 ## 📊파이썬 함수
@@ -361,8 +363,8 @@
     # 0 => 입력값이 0입니다.
     # 1 => 1
 ```
-
-
+### 7. [파이썬 언더바/언더스코어(_)의 의미](https://eine.tistory.com/entry/%ED%8C%8C%EC%9D%B4%EC%8D%AC%EC%97%90%EC%84%9C-%EC%96%B8%EB%8D%94%EB%B0%94%EC%96%B8%EB%8D%94%EC%8A%A4%EC%BD%94%EC%96%B4-%EC%9D%98-%EC%9D%98%EB%AF%B8%EC%99%80-%EC%97%AD%ED%95%A0)
+* [python magic method](https://zzsza.github.io/development/2020/07/05/python-magic-method/)
 ---
 #### 참고
 - [파이썬에서 join 사용하기](https://blockdmask.tistory.com/468)
