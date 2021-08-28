@@ -18,6 +18,5 @@ result = [-1] * N
 for i in range(N):
     while st and count_list[N_list[st[-1]]] < count_list[N_list[i]]:
         result[st.pop()] = N_list[i]
-    st.append(i)
 
 print(*result)
