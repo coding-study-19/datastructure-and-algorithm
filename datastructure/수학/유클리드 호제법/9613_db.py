@@ -1,4 +1,4 @@
-# 백준 | [301]수학1 (연습) | #9613 | GCD 합 | 수학
+# 백준 | [301]수학1 (연습) | #9613 | GCD 합 | 유클리드호제법
 
 import sys
 input = sys.stdin.readline
